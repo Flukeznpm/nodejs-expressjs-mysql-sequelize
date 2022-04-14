@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // router
 app.use('/enduser', require('./src/routes/enduser/index'));
+app.use('/admin', require('./src/routes/admin/index'));
 
 // PORT listen
 app.listen(process.env.PORT || 4000, () => {
