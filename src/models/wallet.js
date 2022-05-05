@@ -15,7 +15,7 @@ const wallet = sequelize.define('wallet',
 		},
 		totalAmount: {
 			type: Sequelize.INTEGER,
-			allowNull: false
+			allowNull: true
 		},
 		userId: {
 			type: Sequelize.INTEGER,

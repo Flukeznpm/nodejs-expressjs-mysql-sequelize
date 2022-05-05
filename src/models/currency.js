@@ -17,6 +17,10 @@ const currency = sequelize.define('currency',
 			type: Sequelize.INTEGER,
 			allowNull: false
 		},
+		currencyBaseId: {
+			type: Sequelize.INTEGER,
+			allowNull: false
+		},
 		userId: {
 			type: Sequelize.INTEGER,
 			allowNull: false

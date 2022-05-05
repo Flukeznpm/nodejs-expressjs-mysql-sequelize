@@ -2,13 +2,11 @@ const walletRepo = require("../repositories/wallet");
 
 module.exports.createWallet = async (
 	name,
-	totalAmount,
 	userId
 ) => {
 	try {
 		const createWallet = await walletRepo.createWallet(
 			name,
-			totalAmount,
 			userId
 		);
 		return createWallet;
@@ -17,3 +15,11 @@ module.exports.createWallet = async (
 	}
 };
 
+module.exports.getWalletById = async (walletId, userId) => {
+	try {
+		const wallet = await walletRepo.getWalletById(walletId, userId);
+		return wallet;
+	} catch (err) {
+		throw err;
+	}
+};

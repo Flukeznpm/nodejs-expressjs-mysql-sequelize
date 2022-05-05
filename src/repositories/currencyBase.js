@@ -16,6 +16,20 @@ module.exports.getAllCurrencyBase = async (page = 1, limit = 10) => {
 	}
 };
 
+module.exports.getCurrencyBaseById = async (name) => {
+	try {
+		let [currencyBase] = await currencyBase.findAll({
+			where: {
+				name: toUpper(name)
+			}
+		});
+
+		return currencyBase;
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports.createCurrencyBase = async (listCurrency) => {
 	try {
 		for (const currency of listCurrency) {

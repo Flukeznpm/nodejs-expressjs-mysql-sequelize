@@ -3,14 +3,13 @@ const { wallet } = db;
 
 module.exports.createWallet = async (
 	name,
-	totalAmount,
 	userId
 ) => {
 	try {
 		const insert = {
 			name: name,
-			totalAmount: totalAmount,
-			userId: userId
+			userId: Number(userId),
+			totalAmount: 0
 		}
 		const createWallet = await wallet.create(insert);
 
@@ -19,3 +18,18 @@ module.exports.createWallet = async (
 		throw err;
 	}
 }
+
+module.exports.getWalletById = async (walletId, userId) => {
+	try {
+		let [wallet] = await wallet.findAll({
+			where: {
+				walletId: Number(walletId),
+				userId: Number(userId)
+			}
+		});
+
+		return wallet;
+	} catch (err) {
+		throw err;
+	}
+};

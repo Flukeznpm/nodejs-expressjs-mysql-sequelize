@@ -9,6 +9,15 @@ module.exports.getAllCurrencyBase = async (page, limit) => {
 	}
 };
 
+module.exports.getCurrencyBaseById = async (page, limit) => {
+	try {
+		const currencyBaseById = await currencyBaseRepo.getCurrencyBaseById(page, limit);
+		return currencyBaseById;
+	} catch (err) {
+		throw err;
+	}
+};
+
 module.exports.createCurrencyBase = async (listCurrency) => {
 	try {
 		const createCurrencyBase = await currencyBaseRepo.createCurrencyBase(listCurrency);
